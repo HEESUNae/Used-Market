@@ -12,9 +12,10 @@
 - 회원가입 기능 구현
 - 해시비밀번호를 이용한 비밀번호 암호화
 - 로그인시 유저 세션 데이터 생성
+- next-cloudinary 이미지 업로드
 
 ## 개발환경
 
 - HTML, Tailwind CSS, TypeScript, Next.js
-- React-hook-from, bcrypt, Auth.js, NextAuth.js, react-icons
+- React-hook-from, bcrypt, Auth.js, NextAuth.js, react-icons, next-cloudinary
 - Prisma, Postgres, Docker

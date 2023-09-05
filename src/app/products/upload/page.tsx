@@ -2,6 +2,7 @@
 import Button from '@/components/Button';
 import Container from '@/components/Container';
 import Heading from '@/components/Heading';
+import ImageUpload from '@/components/ImageUpload';
 import Input from '@/components/Input';
 import React, { useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
@@ -27,13 +28,20 @@ const ProductUploadPage = () => {
       price: 1,
     },
   });
-
   const onSubmit: SubmitHandler<FieldValues> = (data) => {};
+
+  // 이미지 경로 설정
+  const imageSrc = watch('imageSrc');
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value);
+  };
+
   return (
     <Container>
       <div className="max-w-screen-lg mx-auto">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8">
           <Heading title="Product Upload" subtitle="upload yout product" />
+          <ImageUpload onChange={(value) => setCustomValue('imageSrc', value)} value={imageSrc} />
           <Input id="title" label="Title" disabled={isLoading} register={register} errors={errors} required />
           <Input
             id="description"
