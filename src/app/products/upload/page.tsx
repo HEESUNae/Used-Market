@@ -6,11 +6,14 @@ import ImageUpload from '@/components/ImageUpload';
 import Input from '@/components/Input';
 import { categories } from '@/components/categories/Categories';
 import CategoryInput from '@/components/categories/CategoryInput';
+import axios from 'axios';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 const ProductUploadPage = () => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -31,7 +34,6 @@ const ProductUploadPage = () => {
       price: 1,
     },
   });
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {};
 
   const imageSrc = watch('imageSrc');
   const category = watch('category');
@@ -45,6 +47,22 @@ const ProductUploadPage = () => {
 
   // 런타임 환경에서 불러오도록 설정
   const KakaoMap = dynamic(() => import('../../../components/KakaoMap'), { ssr: false });
+
+  // 디비에 파일 업로드
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    setIsLoading(true);
+    axios
+      .post('/api/products', data)
+      .then((response) => {
+        router.push(`/products/${response.data.id}`);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   return (
     <Container>
