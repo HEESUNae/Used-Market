@@ -17,5 +17,5 @@
 ## 개발환경
 
 - HTML, Tailwind CSS, TypeScript, Next.js
-- React-hook-from, bcrypt, Auth.js, NextAuth.js, react-icons, next-cloudinary
+- React-hook-from, bcrypt, Auth.js, NextAuth.js, react-icons, next-cloudinary, react-toast, dayjs, kakaoMap
 - Prisma, Postgres, Docker
