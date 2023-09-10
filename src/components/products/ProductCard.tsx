@@ -3,7 +3,7 @@ import React from 'react';
 import { Product, User } from '@prisma/client';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import HeartButton from './HeartButton';
+import HeartButton from '../HeartButton';
 import { fromNow } from '@/helpers/dayjs';
 
 interface ProductCardProps {
