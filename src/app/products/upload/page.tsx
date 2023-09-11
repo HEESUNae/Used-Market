@@ -57,7 +57,7 @@ const ProductUploadPage = () => {
         router.push(`/products/${response.data.id}`);
       })
       .catch((err) => {
-        console.log(err.response);
+        console.error(err.response);
       })
       .finally(() => {
         setIsLoading(false);

@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server';
 import prisma from '@/helpers/prismadb';
 
 export async function POST(request: Request) {
-  console.log('post!!!');
   const currentUser = await getCurrentUser();
 
   // 로그인 되어있지않으면 에러
